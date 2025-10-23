@@ -32,8 +32,11 @@ export class ConnectionError extends Error {
 
 /**
  * Workflow transition request body
+ * Matches the StateMachineContext interface from movie-service
  */
 export interface WorkflowTransitionBody {
+  /** User ID who initiated the transition */
+  userId?: string
   /** Human-readable reason for the transition */
   reason?: string
   /** Workflow context and processing information */
@@ -594,6 +597,7 @@ export function useResourceService(base: string = 'movie/api') {
    *
    * // Workflow transition with data updates
    * await api.workflow("media", "123", "status", "complete", {
+   *   userId: "user-123",
    *   reason: "Processing completed successfully",
    *   metadata: { workflowId: "transcode-123" },
    *   data: { processingCompletedAt: new Date().toISOString() }
