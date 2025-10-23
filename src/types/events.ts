@@ -30,11 +30,11 @@ export type HttpErrorPayload = {
 }
 
 /**
- * CRUD activity payload for create/update/delete notifications.
+ * CRUD activity payload for create/update/delete/workflow notifications.
  * Publishers: `src/composables/useResourceService.ts`
  * Consumers: `src/composables/useActivity.ts`
  */
-export type CrudAction = 'create' | 'update' | 'delete'
+export type CrudAction = 'create' | 'update' | 'delete' | 'workflow'
 
 export interface CrudEventPayload<T = unknown> {
   resource: string

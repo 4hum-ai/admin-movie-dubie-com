@@ -5,6 +5,7 @@ import {
   EVENT_ACTIVITIES_UPDATED,
   EVENT_VISITS_UPDATED,
   type CrudEventPayload,
+  type CrudAction,
 } from '@/types/events'
 import { useToast } from './useToast'
 import { useResourceService } from './useResourceService'
@@ -20,7 +21,7 @@ export type VisitEntry<T = unknown> = {
 export type ActivityEntry<T = unknown> = {
   resource: string
   id: string
-  action: 'create' | 'update' | 'delete'
+  action: CrudAction
   at: number
   beforeData?: T
   afterData?: T
